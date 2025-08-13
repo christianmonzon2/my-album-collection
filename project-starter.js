@@ -1,5 +1,5 @@
 // Week 1 Session 5: JavaScript Data Manipulation Project
-// Student Name: [Your Name]
+// Student Name: Christian Monzon
 // Project Theme: Album Catalog
 
 let libraryData = {
