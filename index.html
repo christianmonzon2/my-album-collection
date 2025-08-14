@@ -1,140 +1,166 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Album Collection</title>
-  <link rel="stylesheet" href="capstone.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Album Collection</title>
+    <link rel="stylesheet" href="capstone.css">
 </head>
 <body>
-  <div class="container">
+    <div class="container">
     <header>
-      <h1>🎵 My Album Collection</h1>
-      <div class="header-stats">
+        <h1>🎵 My Album Collection</h1>
+        <div class="header-stats">
         <span id="total-albums">0 Albums</span>
         <span id="avg-rating">★ 0.0</span>
-      </div>
+        </div>
     </header>
 
-    <main>
-      <section class="add-album-section">
-        <h2>Add New Album</h2>
-        <form id="add-album-form" class="album-form">
-          <div class="form-row">
+<main>
+    <section class="add-album-section">
+    <h2>Add New Album</h2>
+    <form id="add-album-form" class="album-form">
+        <div class="form-row">
             <input type="text" id="title" placeholder="Album Title" required>
             <input type="text" id="artist" placeholder="Artist" required>
-          </div>
-          <div class="form-row">
-            <select id="genre" required>
-              <option value="">Select Genre</option>
-              <option value="Rock">Rock</option>
-              <option value="Alternative">Alternative</option>
-              <option value="Pop">Pop</option>
-              <option value="Jazz">Jazz</option>
-              <option value="Classical">Classical</option>
-              <option value="Hip-Hop">Hip-Hop</option>
-              <option value="Electronic">Electronic</option>
-              <option value="Country">Country</option>
-            </select>
-            <input type="number" id="year" placeholder="Year" min="1900" max="2024" required>
-          </div>
-          <div class="form-row">
-            <select id="status" required>
-              <option value="">Status</option>
-              <option value="listened">Listened</option>
-              <option value="want-to-listen">Want to Listen</option>
-              <option value="currently-listening">Currently Listening</option>
-            </select>
-            <select id="rating" required>
-              <option value="">Rating</option>
-              <option value="1">★ 1</option>
-              <option value="2">★★ 2</option>
-              <option value="3">★★★ 3</option>
-              <option value="4">★★★★ 4</option>
-              <option value="5">★★★★★ 5</option>
-            </select>
-          </div>
-          <button type="submit" class="btn-primary">Add Album</button>
-        </form>
-      </section>
-
-      <section class="search-section">
-        <h2>Search & Filter</h2>
-        <div class="search-controls">
-          <input type="text" id="search-input" placeholder="Search by title, artist, or genre...">
-          <select id="filter-genre">
-            <option value="">All Genres</option>
-          </select>
-          <select id="filter-status">
-            <option value="">All Status</option>
-            <option value="listened">Listened</option>
-            <option value="want-to-listen">Want to Listen</option>
-            <option value="currently-listening">Currently Listening</option>
-          </select>
-          <button id="clear-filters" class="btn-secondary">Clear Filters</button>
-        </div>
-      </section>
-
-      <section class="albums-section">
-        <div class="section-header">
-          <h2>My Albums</h2>
-          <div class="view-controls">
-            <button id="grid-view" class="view-btn active">Grid</button>
-            <button id="list-view" class="view-btn">List</button>
-          </div>
-        </div>
-        <div id="albums-container" class="albums-grid">
-        </div>
-      </section>
-    </main>
-  </div>
-
-  <div id="edit-modal" class="modal">
-    <div class="modal-content">
-      <span class="close">×</span>
-      <h2>Edit Album</h2>
-      <form id="edit-album-form" class="album-form">
-        <input type="hidden" id="edit-id">
-        <div class="form-row">
-          <input type="text" id="edit-title" placeholder="Album Title" required>
-          <input type="text" id="edit-artist" placeholder="Artist" required>
         </div>
         <div class="form-row">
-          <select id="edit-genre" required>
+        <select id="genre" required>
             <option value="">Select Genre</option>
             <option value="Rock">Rock</option>
             <option value="Alternative">Alternative</option>
             <option value="Pop">Pop</option>
             <option value="Jazz">Jazz</option>
+            <option value="Reggaeton">Reggaeton</option>
             <option value="Classical">Classical</option>
             <option value="Hip-Hop">Hip-Hop</option>
             <option value="Electronic">Electronic</option>
+
             <option value="Country">Country</option>
-          </select>
-          <input type="number" id="edit-year" placeholder="Year" min="1900" max="2024" required>
+        </select>
+        <input type="number" id="year" placeholder="Year" min="1900" max="2024" required>
         </div>
         <div class="form-row">
-          <select id="edit-status" required>
+        <select id="status" required>
             <option value="">Status</option>
             <option value="listened">Listened</option>
             <option value="want-to-listen">Want to Listen</option>
             <option value="currently-listening">Currently Listening</option>
-          </select>
-          <select id="edit-rating" required>
+        </select>
+        <select id="rating" required>
             <option value="">Rating</option>
             <option value="1">★ 1</option>
             <option value="2">★★ 2</option>
             <option value="3">★★★ 3</option>
             <option value="4">★★★★ 4</option>
             <option value="5">★★★★★ 5</option>
-          </select>
+        </select>
         </div>
-        <div class="modal-buttons">
-          <button type="submit" class="btn-primary">Update Album</button>
-          <button type="button" class="btn-secondary" onclick="closeEditModal()">Cancel</button>
-        </div>
-      </form>
-    </div>
-  </div>
+        <button type="submit" class="btn-primary">Add Album</button>
+    </form>
+    </section>
 
-  <script src="project-starter.js"></script>
+    <section class="search-section">
+    <h2>Search & Filter</h2>
+    <div class="search-controls">
+    <input type="text" id="search-input" placeholder="Search by title, artist, or genre...">
+    <select id="filter-genre">
+        <option value="">All Genres</option>
+    </select>
+    <select id="filter-status">
+        <option value="">All Status</option>
+        <option value="listened">Listened</option>
+        <option value="want-to-listen">Want to Listen</option>
+        <option value="currently-listening">Currently Listening</option>
+    </select>
+        <button id="clear-filters" class="btn-secondary">Clear Filters</button>
+    </div>
+    </section>
+
+    <section class="albums-section">
+    <div class="section-header">
+    <h2>My Albums</h2>
+    <div class="view-controls">
+        <button id="grid-view" class="view-btn active">Grid</button>
+        <button id="list-view" class="view-btn">List</button>
+    </div>
+    </div>
+    <div id="albums-container" class="albums-grid">
+    </div>
+    </section>
+
+    <section class="summary-section">
+    <h2>Collection Summary</h2>
+    <div class="stats-grid">
+    <div class="stat-card">
+    <h3 id="stat-total">0</h3>
+    <p>Total Albums</p>
+    </div>
+    <div class="stat-card">
+    <h3 id="stat-avg-rating">0.0</h3>
+    <p>Average Rating</p>
+    </div>
+    <div class="stat-card">
+    <h3 id="stat-genres">0</h3>
+    <p>Unique Genres</p>
+    </div>
+    <div class="stat-card">
+    <h3 id="stat-listened">0</h3>
+    <p>Albums Listened</p>
+    </div>
+    </div>
+    </section>
+</main>
+</div>
+
+<div id="edit-modal" class="modal">
+<div class="modal-content">
+<span class="close">×</span>
+<h2>Edit Album</h2>
+<form id="edit-album-form" class="album-form">
+        <input type="hidden" id="edit-id">
+    <div class="form-row">
+        <input type="text" id="edit-title" placeholder="Album Title" required>
+        <input type="text" id="edit-artist" placeholder="Artist" required>
+    </div>
+    <div class="form-row">
+    <select id="edit-genre" required>
+        <option value="">Select Genre</option>
+        <option value="Rock">Rock</option>
+        <option value="Alternative">Alternative</option>
+        <option value="Pop">Pop</option>
+        <option value="Jazz">Jazz</option>
+        <option value="Classical">Classical</option>
+        <option value="Hip-Hop">Hip-Hop</option>
+        <option value="Electronic">Electronic</option>
+        <option value="Country">Country</option>
+    </select>
+    <input type="number" id="edit-year" placeholder="Year" min="1900" max="2024" required>
+    </div>
+    <div class="form-row">
+    <select id="edit-status" required>
+        <option value="">Status</option>
+        <option value="listened">Listened</option>
+        <option value="want-to-listen">Want to Listen</option>
+        <option value="currently-listening">Currently Listening</option>
+    </select>
+    <select id="edit-rating" required>
+        <option value="">Rating</option>
+        <option value="1">★ 1</option>
+        <option value="2">★★ 2</option>
+        <option value="3">★★★ 3</option>
+        <option value="4">★★★★ 4</option>
+        <option value="5">★★★★★ 5</option>
+    </select>
+    </div>
+    <div class="modal-buttons">
+        <button type="submit" class="btn-primary">Update Album</button>
+        <button type="button" class="btn-secondary" onclick="closeEditModal()">Cancel</button>
+    </div>
+</form>
+</div>
+</div>
+
+<script src="project-starter.js"></script>
+</body>
+</html>
